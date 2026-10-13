@@ -20,6 +20,11 @@ closeDialogButton.addEventListener('click', () => {
   orderDialog.close();
 });
 
+
+closeDialogButton.addEventListener('click', () => {
+  orderDialog.close();
+});
+
 const orderForm = document.getElementById('order-form');
 
 const successMessage = document.getElementById('success-message');
