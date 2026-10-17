@@ -4,6 +4,9 @@ import {findThreeHits, viewProducts} from "./catalog-service.js"
 
 const productsList = getProducts();
 const selectedProductInput = document.getElementById('selected-product');
+const orderDialog = document.getElementById('order-dialog');
+const closeDialogButton = document.getElementById('close-order-dialog');
+const closeSuccessDialogButton = document.getElementById('close-success-dialog');
 
 document.addEventListener('DOMContentLoaded', () => {
   viewProducts(productsList); 
@@ -22,13 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 });
 
-const orderDialog = document.getElementById('order-dialog');
 
 const orderButtons = document.querySelectorAll('.product-card__button');
-
-const closeDialogButton = document.getElementById('close-order-dialog');
-const closeSuccessDialogButton = document.getElementById('close-success-dialog');
-
 
 orderButtons.forEach((button) => {
   button.addEventListener('click', () => {

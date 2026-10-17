@@ -19,7 +19,7 @@ const newProductCard = (product) => {
     // desc.style.display = 'block'; 
     
     const price = document.createElement('span');
-    desc.classList.add('product-card__price')
+    price.classList.add('product-card__price')
     price.textContent = `${product.price} руб.`;
     price.style.display = 'block'; 
 
@@ -39,6 +39,7 @@ const newProductCard = (product) => {
 
 export const viewProducts = (productsList) => {
     const listContainer = document.getElementById('product-list');
+    if (!listContainer) return;
     try {
       // Создаем "фрагмент" в памяти, чтобы не перерисовывать браузер на каждой итерации
         const fragment = document.createDocumentFragment();
@@ -54,8 +55,9 @@ export const viewProducts = (productsList) => {
 
 export const findThreeHits = (productsList) =>{
     const listContainer = document.getElementById('hit-list');
+    if (!listContainer) return;
     const fragment = document.createDocumentFragment();
-    console.log(productsList);
+    
     const hitProducts = productsList.filter(product => product.category === "Хит").slice(0, 3);
 
     hitProducts.forEach((product) => {
