@@ -4,18 +4,20 @@
 
 :root {
   /* Основные цвета проекта */
-  --color-bg: #ffffff;
-  --color-text: #222222;
-  --color-muted: #666666;
-  --color-primary: #0057b8;
-  --color-primary-dark: #003f86;
+  --color-bg: #80C7F2;
+  --color-bg-2: #F20587;
+  --color-text: #ffffff;
+  --color-muted: rgb(82, 81, 81);
+  --color-primary: #084089;
+  --color-primary-dark: #0e3260;
   --color-border: #dddddd;
-  --color-surface: #f7f7f7;
-  --color-surface-accent: #eef5ff;
+  --color-surface: #5B9ED9;
+  --color-surface-accent: #5B9ED9;
   --color-danger: #b00020;
   --color-success: #168a2f;
   --color-success-bg: #eefaf0;
   --color-white: #ffffff;
+  --color-black: #000000;
 
   /* Отступы */
   --space-xs: 4px;
@@ -50,10 +52,14 @@ body {
   font-family: Arial, sans-serif;
   line-height: 1.5;
   color: var(--color-text);
-  background-color: var(--color-bg);
+  background-image: url("../images/background.jpg");
+  background-attachment: fixed; 
+  backdrop-filter: blur(5px);  
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
-header,
 main,
 footer {
   padding: var(--space-lg);
@@ -65,6 +71,7 @@ main {
 
 header {
   background-color: var(--color-surface);
+  box-shadow: 0 4px 12px var(--color-primary-dark);
 }
 
 footer {
@@ -155,6 +162,10 @@ a:focus-visible {
    4. Компоненты страницы
    =============================== */
 
+.page-text {
+  color: var(--color-black);
+}
+
 .hero {
   max-width: var(--container-width);
   margin: 0 auto var(--space-xl);
@@ -173,22 +184,26 @@ a:focus-visible {
 }
 
 .product-card {
+  list-style: none; 
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
   padding: var(--space-md);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-surface-accent);
   border-radius: var(--radius-md);
   background-color: var(--color-bg);
+  box-shadow: 0 4px 12px var(--color-primary-dark); 
 }
 
 .product-card:hover {
   border-color: var(--color-primary);
 }
 
-.product-card--featured {
+/* .product-card--featured {
   border-color: var(--color-primary);
-}
+} */
 
 .product-card--discount {
   border-color: var(--color-danger);
@@ -201,7 +216,7 @@ a:focus-visible {
 
 .product-card__description {
   margin: 0;
-  color: var(--color-muted);
+  color: var(--color-primary-dark);
 }
 
 .product-card__price {
@@ -213,11 +228,17 @@ a:focus-visible {
   color: var(--color-danger);
 }
 
+.product-card__button--product-card {
+  grid-area: product-card-button-area;
+}
 .product-card__button {
   margin-top: auto;
-  align-self: flex-start;
+  /* align-self: flex-start; */
 }
-
+.product-card-image {
+  width: 100%;
+  border-radius: var(--radius-md);
+}
 
 
 .button {
@@ -361,9 +382,10 @@ a:focus-visible {
 
 .success-message {
   max-width: var(--container-width);
-  margin: var(--space-lg) auto;
+  margin: 150px auto;
   padding: var(--space-md);
-  border-left: 4px solid var(--color-success);
+  border: 2px solid var(--color-primary-dark);
+  border-radius: var(--radius-md);
   background-color: var(--color-success-bg);
 }
 
@@ -395,7 +417,10 @@ a:focus-visible {
   margin: 0 auto var(--space-xl);
   display: grid;
   grid-template-columns: 260px 1fr;
-  grid-template-areas: "filters products";
+  grid-template-rows: 530px auto;
+  grid-template-areas: 
+  "filters products"
+  "empty products";
   gap: var(--space-lg);
 }
 
@@ -405,6 +430,9 @@ a:focus-visible {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background-color: var(--color-surface);
+  position: sticky;
+  top: 20px; 
+  z-index: 100;
 }
 
 .catalog-products {
@@ -439,3 +467,23 @@ a:focus-visible {
   border-radius: var(--radius-sm);
   font: inherit;
 }
+
+
+
+
+/* .success-message {
+  display: block;
+  width: 100px;
+  height: 50px;
+  max-width: var(--container-width);
+  margin: var(--space-lg) auto;
+  padding: var(--space-md);
+  border-left: 4px solid var(--color-success);
+  background-color: var(--color-success-bg);
+} */
+
+.site-header-logo-img {
+  width: 40px;
+}
+
+

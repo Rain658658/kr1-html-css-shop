@@ -11,12 +11,12 @@
 
     <title>Каталог товаров — Учебный интернет-магазин</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/main.js" defer></script>
+    <script type="module" src="js/main.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <a class="site-header__logo" href="index.html">Магазин "Симфония разрушения"</a>
 
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
@@ -51,7 +51,7 @@
 
     <section class="section">
       <h1>Каталог товаров</h1>
-      <p>
+      <p class="page-text">
         На этой странице представлен учебный каталог товаров.
         В дальнейшем здесь будут добавлены фильтры, сортировка и более
         подробные карточки.
@@ -98,12 +98,14 @@
 
         <section class="catalog-products">
             <h2>Список товаров</h2>
-
-            <div class="products-grid">
-                <article class="product-card">
-                    <h3 class="product-card__title">Товар 1</h3>
-                    <p class="product-card__description">Краткое описание учебного товара.</p>
-                    <p class="product-card__price">Цена: 1000 руб.</p>
+            
+            <ul id="product-list" class="products-grid" aria-label="Список задач"></ul>
+            <!-- <div class="products-grid">
+                <article class="product-card product-card--featured">
+                    <img class="product-card-image" src="images/Баян.jpg"/>
+                    <h3 class="product-card__title">BN-40-RD Баян ученический двухголосный</h3>
+                    <p class="product-card__description">Хотите прикоснуться к настоящей музыкальной истории? Баян «Мелодия» от Тульской фабрики — это не просто инструмент, а живая легенда, которую знают и любят поколения музыкантов. В народе его ласково зовут «тёрочкой» — и в этом имени столько тепла и уважения!</p>
+                    <p class="product-card__price">Цена: 131 140 руб.</p>
                     <button
                         class="button product-card__button"
                         type="button"
@@ -112,10 +114,11 @@
                         Заказать
                     </button>
                 </article>
-                <article class="product-card">
-                    <h3 class="product-card__title">Товар 2</h3>
-                    <p class="product-card__description">Краткое описание учебного товара.</p>
-                    <p class="product-card__price">Цена: 200 руб.</p>
+                <article class="product-card product-card--featured">
+                    <img class="product-card-image" src="images/Синтезатор.jpg"/>
+                    <h3 class="product-card__title">Цифровое пианино WENCAI BL-8802</h3>
+                    <p class="product-card__description">WENCAI BL-8802 — цифровое пианино с 88 полноразмерными взвешенными клавишами. Полностью взвешенная клавиатура подходит для обучения, регулярных домашних занятий и развития техники игры.</p>
+                    <p class="product-card__price">Цена: 28 990 руб.</p>
                     <button
                         class="button product-card__button"
                         type="button"
@@ -124,10 +127,11 @@
                         Заказать
                     </button>
                 </article>
-                <article class="product-card">
-                    <h3 class="product-card__title">Товар 3</h3>
-                    <p class="product-card__description">Краткое описание учебного товара.</p>
-                    <p class="product-card__price">Цена: 12000 руб.</p>
+                <article class="product-card product-card--featured">
+                    <img class="product-card-image" src="images/Скрипка.jpg"/>
+                    <h3 class="product-card__title">Комплект скрипичный Stefan Poladic 200 3/4</h3>
+                    <p class="product-card__description">Этот скрипичный комплект начального ценового сегмента, построенный полностью из массива, без использования ламината. В отличие от 100 модели, в модели  200 используется древесина более высокого класса, что обогащает звуковую палитру. </p>
+                    <p class="product-card__price">Цена: 11700 руб.</p>
                     <button
                         class="button product-card__button"
                         type="button"
@@ -136,7 +140,7 @@
                         Заказать
                     </button>
                 </article>
-            </div>
+            </div> -->
         </section>
         </section>
 
@@ -240,9 +244,16 @@
     </form>
     </dialog>
 
-    <p class="success-message" id="success-message" hidden>
-        Форма успешно отправлена!
-    </p>
+    <dialog class="success-message" id="success-message" hidden>
+        <div class="after-form-actions">
+            <p>
+                Форма успешно отправлена!
+            </p>
+            <a class="button button--secondary" id="close-success-dialog" type="button" href="catalog.html">
+                Вернуться в каталог 
+            </a>
+        </div>
+    </dialog>
   <footer>
     <p>&copy; 2026 Учебный проект. Все права защищены.</p>
     <p>Дисциплина: Фронтенд и бэкенд разработка</p>
